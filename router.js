@@ -35,18 +35,17 @@ router.post('/', (request, response) =>{
         //convert POST data into readablle string
        let query = inputValue.toString(); //number of paragraphs
         //parse query into key:value pair and store value in numOfParagraphs in a variable
-       let numOfParagraphs = querystring.parse(query).numOfParagraphs; 
+       let numOfParagraphs = Number(querystring.parse(query).numOfParagraphs);
         //generate l.i. text 
        let loremIpsumText = lorem.generateParagraphs(numOfParagraphs);
         //capture contents of index.html in a var
         let fileContents = fs.readFileSync("./public/index.html", {encoding: "utf8"});
         //replace placeholder div with l.i. text
-        fileContents = fileContents.replace("<div class='placeholder-div'></div>", loremIpsumText);;
+        fileContents = fileContents.replace("<div class='placeholder-div'></div>", loremIpsumText);
         //send response to client with modified index.html file
         response.setHeader('Content-Type', 'text/html');
         response.write(fileContents);
         response.end(); 
-        console.log(loremIpsumText);
     });
 });
 
