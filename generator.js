@@ -12,6 +12,10 @@ const lorem = new LoremIpsum({
     }
   });
 
-lorem.generateParagraphs();
+LoremIpsum.prototype.generate
 
-module.exports = lorem;
+lorem.generateWords(1);
+lorem.generateSentences(5);
+lorem.generateParagraphs(7);
+
+module.exports = LoremIpsum;
