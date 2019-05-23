@@ -1,5 +1,5 @@
 //code generates random lorem ipsum text
-const loremIpsum = require('lorem-ipsum').LoremIpsum;
+const LoremIpsum = require('lorem-ipsum').LoremIpsum;
 
 const lorem = new LoremIpsum({
     sentencesPerParagraph: {
@@ -12,8 +12,6 @@ const lorem = new LoremIpsum({
     }
   });
 
-lorem.generateWords(1);
-lorem.generateSentences(5);
-lorem.generateParagraphs(7);
+lorem.generateParagraphs();
 
-module.exports = loremIpsum;
+module.exports = lorem;

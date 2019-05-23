@@ -1,10 +1,10 @@
-const loremIpsum = require("./generator.js");
+const loremIpsum = require("./generator2.js");
 const querystring = require("querystring");
 const fs = require("fs"); //module required to get contents of different files in our app; stands for 'file system'
 
 //require express and create router object
 const express = require('express');
-const router = expres.Router();
+const router = express.Router();
 
 //first route definition is the GET route and sends contents of index.html to the client
 //route that serves index.html
@@ -26,8 +26,8 @@ router.post('/', (request, response) =>{
         let query = inputValue.toString(); //number of paragraphs
         //parse query into key:value pair and store value in numOfParagraphs in a variable
         let numOfParagraphs = querystring.parse(query).numOfParagraphs;
-        //generate l.i. text with getAllParagraphs function
-        let loremIpsumText = loremIpsumText.getAllParagraphs(numOfParagraphs);
+        //generate l.i. text 
+        let loremIpsumText = loremIpsum(numOfParagraphs);
         //capture contents of index.html in a var
         let fileContents = fs.readFileSync("./public/index.html", {encoding: "utf8"});
         //replace placeholder div with l.i. text
@@ -36,7 +36,9 @@ router.post('/', (request, response) =>{
         response.setHeader('Content-Type', 'text/html');
         response.write(fileContents);
         response.end();
+        console.log( numOfParagraphs + loremIpsumText);
     });
 });
+
 
 module.exports = router;
