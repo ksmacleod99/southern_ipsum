@@ -1,4 +1,3 @@
-/*const LoremIpsum = require("./generator.js"); */
 const querystring = require("querystring");
 const fs = require("fs"); //module required to get contents of different files in our app; stands for 'file system'
 const LoremIpsum = require('lorem-ipsum').LoremIpsum;

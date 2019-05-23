@@ -1,4 +1,4 @@
-# Southen Ipsum
+# Southern Ipsum
 A lorem ipsum generator with a twang
 
 ## Why?
