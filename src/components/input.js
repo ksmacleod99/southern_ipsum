@@ -19,9 +19,10 @@ export default class Input extends React.Component {
       event.preventDefault();
     }
     render(){
+      const input = this.props.value;
         return(
         <form onSubmit={this.handleSubmit}>
-            <input type="number" value={this.props.value}  onChange={this.handleChange}/>
+            <input type="number" value={input}  onChange={this.handleChange}/>
             <input type="submit" value="Generate" className="generate-button"/>
             </form>
 

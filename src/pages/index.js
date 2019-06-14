@@ -4,7 +4,7 @@ import { LoremIpsum } from "lorem-ipsum";
 
 import Layout from "../components/layout"
 
-function createIpsum(value) {
+function createIpsum(input) {
   const lorem = new LoremIpsum({
     sentencesPerParagraph: {
         max: 8,
@@ -25,23 +25,18 @@ function createIpsum(value) {
 
 }
 
-
 class IndexPage extends React.Component {
-  
   constructor(props) {
   super(props);
-  this.state = {value: ''};
+  this.state = {input: ''};
   this.handleInput = this.handleInput.bind(this);
   }
 
-  handleInput(value) {
-    this.setState(value);
+  handleInput(input) {
+    this.setState(input);
+    createIpsum(input);
   }
 
-
-    
-  
-   
   render() {
    return (
     <Layout>
