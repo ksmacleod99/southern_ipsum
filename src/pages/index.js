@@ -4,26 +4,6 @@ import { LoremIpsum } from "lorem-ipsum";
 
 import Layout from "../components/layout"
 
-function createIpsum(input) {
-  const lorem = new LoremIpsum({
-    sentencesPerParagraph: {
-        max: 8,
-        min: 4
-    },
-    wordsPerSentence: {
-        max: 16,
-        min: 4
-    }
-  }); 
-  
-  const para = document.createElement('p');
-  const text = document.createTextNode(lorem.generateParagraphs(this.state.value));
-  para.appendChild(text);
-
-  const targetDiv = document.getElementById('target');
-  targetDiv.appendChild(para);
-
-}
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -34,7 +14,23 @@ class IndexPage extends React.Component {
 
   handleInput(input) {
     this.setState(input);
-    createIpsum(input);
+    const lorem = new LoremIpsum({
+      sentencesPerParagraph: {
+          max: 8,
+          min: 4
+      },
+      wordsPerSentence: {
+          max: 16,
+          min: 4
+      }
+    }); 
+    
+    const para = document.createElement('p');
+    const text = document.createTextNode(lorem.generateParagraphs(this.state));
+    para.appendChild(text);
+  
+    const targetDiv = document.getElementById('target');
+    targetDiv.appendChild(para);
   }
 
   render() {
