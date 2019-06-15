@@ -4,7 +4,6 @@ import { LoremIpsum } from "lorem-ipsum";
 
 import Layout from "../components/layout"
 
-
 class IndexPage extends React.Component {
   constructor(props) {
   super(props);
@@ -14,19 +13,10 @@ class IndexPage extends React.Component {
 
   handleInput(input) {
     this.setState(input);
-    const lorem = new LoremIpsum({
-      sentencesPerParagraph: {
-          max: 8,
-          min: 4
-      },
-      wordsPerSentence: {
-          max: 16,
-          min: 4
-      }
-    }); 
-    
+    const lorem = new LoremIpsum();    
+    const value = this.state;
     const para = document.createElement('p');
-    const text = document.createTextNode(lorem.generateParagraphs(this.state));
+    const text = document.createTextNode(lorem.generateParagraphs(value));
     para.appendChild(text);
   
     const targetDiv = document.getElementById('target');
