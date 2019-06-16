@@ -11,23 +11,33 @@ class IndexPage extends React.Component {
     }
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
-}
+    this.handleClear = this.handleClear.bind(this);
+  }
 
-handleInput(e) {
-    let value = e.target.value;
-    this.setState({number: value});
-} 
+  handleInput(e) {
+      this.setState({number: e.target.value});
+  } 
 
-handleFormSubmit(e){
-    e.preventDefault();
-    let number= Number(this.state.number);
-    const lorem = new LoremIpsum();
+  handleFormSubmit(e){
+      e.preventDefault();
+      const number= Number(this.state.number);
+      this.setState({number: ''});
 
-    var node = document.getElementById('placeholder');
-    var newNode = document.createElement('p');
-    newNode.appendChild(document.createTextNode(lorem.generateParagraphs(number)));
-    node.appendChild(newNode);
-}
+      const lorem = new LoremIpsum();
+
+      const node = document.getElementById('placeholder');
+      const newNode = document.createElement('p');
+      newNode.appendChild(document.createTextNode(lorem.generateParagraphs(number)));
+      node.appendChild(newNode);
+  }
+
+  handleClear(){
+    const para = document.getElementById('placeholder');
+    while ( para.firstChild){
+      para.removeChild(para.firstChild);
+    }
+  }
+
 render(){
     return(
       <Layout>
@@ -38,8 +48,10 @@ render(){
             value={this.state.value}
             handleChange={this.handleInput}
             />
-            <button type="submit" value="submit">Mash It</button>
+            <input type="submit" value="Submit" />
+            
         </form>
+        <button value="clear" onClick={this.handleClear}>Clear</button>
         <div id="placeholder"> </div>
       </Layout>
 
