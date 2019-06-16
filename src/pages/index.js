@@ -1,43 +1,49 @@
 import React from "react"
-import Input from "../components/input";
+import Input from "../components/input"
 import { LoremIpsum } from "lorem-ipsum";
-
 import Layout from "../components/layout"
 
 class IndexPage extends React.Component {
-  constructor(props) {
-  super(props);
-  this.state = {input: ''};
-  this.handleInput = this.handleInput.bind(this);
-  }
-
-  handleInput(input) {
-    this.setState(input);
-    const lorem = new LoremIpsum();    
-    const value = this.state;
-    const para = document.createElement('p');
-    const text = document.createTextNode(lorem.generateParagraphs(value));
-    para.appendChild(text);
-  
-    const targetDiv = document.getElementById('target');
-    targetDiv.appendChild(para);
-  }
-
-  render() {
-   return (
-    <Layout>
-      <h1>Southen Ipsum</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <Input
-        onInputSubmit={this.handleInput} 
-        />
-      <div className="generated-text">
-        <div className='target-div' id='target'></div>
-      </div>
-    </Layout>
-  )
-  }
+  constructor(props){
+    super(props);
+    this.state ={
+        number: ''
+    }
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleInput = this.handleInput.bind(this);
 }
 
+handleInput(e) {
+    let value = e.target.value;
+    this.setState({number: value});
+} 
 
+handleFormSubmit(e){
+    e.preventDefault();
+    let number= Number(this.state.number);
+    const lorem = new LoremIpsum();
+
+    var node = document.getElementById('placeholder');
+    var newNode = document.createElement('p');
+    newNode.appendChild(document.createTextNode(lorem.generateParagraphs(number)));
+    node.appendChild(newNode);
+}
+render(){
+    return(
+      <Layout>
+      <h1>Southern Ipsum</h1>
+      <p>another Lorem Ipsum generator.</p>
+        <form className="form-container" onSubmit={this.handleFormSubmit}>
+            <Input
+            value={this.state.value}
+            handleChange={this.handleInput}
+            />
+            <button type="submit" value="submit">Mash It</button>
+        </form>
+        <div id="placeholder"> </div>
+      </Layout>
+
+    )
+  }
+}
 export default IndexPage;

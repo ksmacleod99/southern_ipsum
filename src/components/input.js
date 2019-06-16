@@ -1,26 +1,15 @@
-import React from "react"
-//import { LoremIpsum } from "lorem-ipsum";
+import React from 'react';
 
-export default class Input extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        };
-
-
-    handleSubmit(e) {
-      e.preventDefault();
-      this.props.onInputSubmit(this.props.value);
-
-    }
-    render(){
-      const input = this.props.value;
-        return(
-        <form onSubmit={this.handleSubmit}>
-            <input type="number" value={input} />
-            <input type="submit" value="Generate" className="generate-button"/>
-            </form>
-
-        );
-    }
+const Input = (props) =>{
+  return(
+    <input
+      className="input"
+      id="number"
+      type="number"
+      value={props.value}
+      onChange={props.handleChange}
+      />
+  )
 }
+
+export default Input;
