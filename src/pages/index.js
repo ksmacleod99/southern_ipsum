@@ -24,19 +24,18 @@ class IndexPage extends React.Component {
       this.setState({number: ''});
 
       const lorem = new LoremIpsum();
-
       const node = document.getElementById('placeholder');
       const newNode = document.createElement('p');
       newNode.appendChild(document.createTextNode(lorem.generateParagraphs(number)));
       node.appendChild(newNode);
   }
 
-  handleClear(){
-    const para = document.getElementById('placeholder');
-    while ( para.firstChild){
-      para.removeChild(para.firstChild);
+    handleClear(){
+      const para = document.getElementById('placeholder');
+      while ( para.firstChild){
+        para.removeChild(para.firstChild);
+      }
     }
-  }
 
 render(){
     return(
@@ -49,9 +48,9 @@ render(){
             handleChange={this.handleInput}
             />
             <input type="submit" value="Submit" />
-            
+            <button value="clear" onClick={this.handleClear}>Clear</button>
         </form>
-        <button value="clear" onClick={this.handleClear}>Clear</button>
+
         <div id="placeholder"> </div>
       </Layout>
 
