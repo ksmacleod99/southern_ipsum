@@ -1,0 +1,19 @@
+diff --git a/node_modules/lorem-ipsum/src/constants/words.ts b/node_modules/lorem-ipsum/src/constants/words.ts
+index 2555a46..3995889 100755
+--- a/node_modules/lorem-ipsum/src/constants/words.ts
++++ b/node_modules/lorem-ipsum/src/constants/words.ts
+@@ -61,4 +61,14 @@ export const WORDS = [
+   "velit",
+   "veniam",
+   "voluptate",
++  "y'all",
++  "fixin' to",
++  "grits",
++  "ain't",
++  "kudzu",
++  "football",
++  "humidity",
++  "mosquitoes",
++  "Moon Pies",
++  "white lightnin'"
+ ];

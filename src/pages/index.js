@@ -1,7 +1,8 @@
 import React from "react"
 import Input from "../components/input"
-import { LoremIpsum } from "lorem-ipsum";
+import { LoremIpsum } from "lorem-ipsum"
 import Layout from "../components/layout"
+import "./styles.scss"
 
 class IndexPage extends React.Component {
   constructor(props){
@@ -40,18 +41,21 @@ class IndexPage extends React.Component {
 render(){
     return(
       <Layout>
-      <h1>Southern Ipsum</h1>
-      <p>another Lorem Ipsum generator.</p>
+      
+      <h3 className="center">A <i>lorem ipsum</i> generator with a twang.</h3>
+      <p>Hey y'all, this is a small personal project I've been working on to teach myself some new coding stuff. Hope you enjoy!</p>
         <form className="form-container" onSubmit={this.handleFormSubmit}>
-            <Input
+           <label>Paragraphs:</label> <Input
             value={this.state.value}
             handleChange={this.handleInput}
             />
-            <input type="submit" value="Submit" />
+            <input className="goButton" type="submit" value="Mash Me" />
             <button value="clear" onClick={this.handleClear}>Clear</button>
         </form>
 
-        <div id="placeholder"> </div>
+        <div id="placeholder" className="placeholder">
+        <p>Lorem Ipsum, y'all!</p>
+         </div>
       </Layout>
 
     )

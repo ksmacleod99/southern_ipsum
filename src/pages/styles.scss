@@ -1,0 +1,61 @@
+/* RGB */
+$teal: rgba(40, 83, 107, 1);
+$pink: rgba(194, 148, 138, 1);
+$blue: rgba(126, 168, 190, 1);
+$white: rgba(246, 240, 237, 1);
+$khaki: rgba(187, 177, 147, 1);
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: $blue;
+}
+h1 {
+    font-family: 'Dancing Script', cursive;
+}
+
+button {
+    border: solid 1px $teal;
+    color: $teal;
+    background-color: $pink;
+}
+.goButton {
+    border: solid 1px $pink;
+    color: $white;
+    background-color: $teal;
+}
+
+input{
+    margin: 5px;
+}
+
+.form-container {
+ margin: 5px;
+ padding: 0;
+ text-align: center;
+
+}
+
+.placeholder{
+    min-height:80%;
+    border: 2px solid $khaki;
+    padding: 10px;
+}
+
+main{
+    background-color: $white;
+    margin: 1em;
+    padding: 1.5em;
+}
+
+.center{
+    text-align: center;
+}
+
+a:link {
+    color: $pink;
+    font-weight: 700;
+}
+
+a:visited {
+    color: $teal;
+    font-weight: 700;
+}
